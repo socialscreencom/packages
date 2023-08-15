@@ -145,7 +145,7 @@ class _MyAppState extends State<_MyApp> {
             _buildConnectionCheckTile(),
             _buildProductList(),
             _buildConsumableBox(),
-            _FeatureCard(),
+            const _FeatureCard(),
           ],
         ),
       );
@@ -258,9 +258,7 @@ class _MyAppState extends State<_MyApp> {
                 : TextButton(
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.green[800],
-                      // TODO(darrenaustin): Migrate to new API once it lands in stable: https://github.com/flutter/flutter/issues/105724
-                      // ignore: deprecated_member_use
-                      primary: Colors.white,
+                      foregroundColor: Colors.white,
                     ),
                     onPressed: () {
                       // NOTE: If you are making a subscription purchase/upgrade/downgrade, we recommend you to
@@ -444,9 +442,9 @@ class _MyAppState extends State<_MyApp> {
 }
 
 class _FeatureCard extends StatelessWidget {
-  _FeatureCard();
+  const _FeatureCard();
 
-  final InAppPurchaseAndroidPlatformAddition addition =
+  InAppPurchaseAndroidPlatformAddition get addition =>
       InAppPurchasePlatformAddition.instance!
           as InAppPurchaseAndroidPlatformAddition;
 
